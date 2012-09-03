@@ -11,7 +11,17 @@ class HW1App : public AppBasic {
 	void mouseDown( MouseEvent event );	
 	void update();
 	void draw();
+
+private:
+	Surface* mySurface_;
+
+	void makeCircle(int Vec2f, int loc);
 };
+
+
+	
+
+
 
 void HW1App::setup()
 {
@@ -29,6 +39,9 @@ void HW1App::draw()
 {
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) ); 
+	float x = cos(getElapsedSeconds() );
+	float y = sin(getElapsedSeconds() );
+	gl::drawSolidCircle(Vec2f(x,y) + getWindowSize()/2, 50.0f);
 }
 
 CINDER_APP_BASIC( HW1App, RendererGl )
